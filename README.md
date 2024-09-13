@@ -119,3 +119,18 @@ export !== exports
 ## NPM Modules
 
 - Those modules which are present inside the npm_modules are called npm modules
+
+## Understand package.json file in depth
+
+node has its own built-in module which replace the nodemon you can use `--watch` flag
+`node --watch app.js`
+
+### dev dependencies are the dependencies which where no needed after built the file means in the buit folder it doesn't include as well it is needed for development environment only not for production
+
+## shebang `#!` `/usr/bin/env`
+
+- it is for unix OS only
+
+## cli vs library package
+
+- `.bin` is special kind of function created when using cli packages(Most of the time)
