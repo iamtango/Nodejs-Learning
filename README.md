@@ -4,6 +4,26 @@
 globalThis === global;
 ```
 
+#### How are vairbale and fucntions private in different modules?
+
+-> IFFE
+
+#### How do ypu get access of module.exports
+
+-> Nodejs passes multiple parameters in IIFE and module.exports is one of them
+
+#### How Require function works
+
+- Resolution of the Module
+- Load the module
+  - file contents is loaded according to the file type
+- Compile
+  - Wrap inside IIFE
+- Evaluation i.e passing params
+- `Caching`
+
+#### File ---> wrap the file with IIFE ---> passing it to V8 Engine
+
 ### Modules are protected by default and it is use to protect their variables and functions from leaking
 
 ## Middleware is nothing but the initial checks before the actual execution of the function.
