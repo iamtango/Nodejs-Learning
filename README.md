@@ -154,3 +154,33 @@ node has its own built-in module which replace the nodemon you can use `--watch`
 ## cli vs library package
 
 - `.bin` is special kind of function created when using cli packages(Most of the time)
+
+### NPX
+
+#### How NPX works?
+
+- it seaches for a file and executes it.
+
+##### Search step 1
+
+- first searches for package.json file in current working directory
+- seaches for name key in json file
+- after that seaches for bin key
+
+##### Search step 2
+
+- searches for node_modules/.bin/${YOUR_SEARCHTEXT} file in current working directory and executes
+
+##### Search step 3
+
+- searches for global npm folder `npm root -g` and executes
+
+##### Search step 4
+
+- for npx cache
+
+##### Search step 5
+
+- searches for ${YOUR_SEARCHTEXT} package in npm registory and give prompt to install or not and then download if allowed and executes it if it is executable and if not then give error
+
+#### At the end NPX is just and simple javascript file
