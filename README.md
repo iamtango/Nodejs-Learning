@@ -184,3 +184,14 @@ node has its own built-in module which replace the nodemon you can use `--watch`
 - searches for ${YOUR_SEARCHTEXT} package in npm registory and give prompt to install or not and then download if allowed and executes it if it is executable and if not then give error
 
 #### At the end NPX is just and simple javascript file
+
+## FS Module
+
+```js
+import fs from "fs";
+import fs from "node:fs";
+```
+
+better to use fs module from `node:fs/promises` this is use to return a promise and it is best way to use fs module
+and it does not block the main thread, it also help to boost performance
+and it is similar syntax as readFileSync
