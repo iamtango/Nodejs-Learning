@@ -26,6 +26,8 @@ globalThis === global;
 
 ### Modules are protected by default and it is use to protect their variables and functions from leaking
 
+### Libuv is `C Library` just use to Async I/O operations made simple
+
 ## Middleware is nothing but the initial checks before the actual execution of the function.
 
 ## app.use(express.json()) is use for getting body object whenever the post request is made.
@@ -195,3 +197,17 @@ import fs from "node:fs";
 better to use fs module from `node:fs/promises` this is use to return a promise and it is best way to use fs module
 and it does not block the main thread, it also help to boost performance
 and it is similar syntax as readFileSync
+
+### writeFile
+
+```js
+writeFile("PATHNAME", "CONTENT TO WRITE");
+```
+
+it overrides content with current content
+
+```js
+appendFile("PATHNAME", "CONTENT TO WRITE");
+```
+
+it doesn't overrides content with current content
