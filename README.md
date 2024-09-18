@@ -28,6 +28,47 @@ globalThis === global;
 
 ### Libuv is `C Library` just use to Async I/O operations made simple
 
+### Require function works in synchronous mode when working with the common js
+
+## Async task management by Libuv
+
+- Donot use the sync method it will going to block the Main thread instead use the async method thease task send to LIBUV
+
+#### Code Execution in V8
+
+- Code
+- Parsing
+  - Lexical Analysis [Tokenization]
+    - Code token
+  - Syntax Analysis [Parsing]
+    - AST(Abstract Syntax tree) [Website Example](https://astexplorer.net/)
+      when code doesnot generate the AST then it throws the error like syntax error
+- Ignition Interpreter
+  - Convert the code into the byte code
+    - Execution
+  - Turbofan compiler (get HOT code from interpreter)
+    - Optimise machine code
+      - Execution
+
+![Code Execution in V8](./assets/CodeExecution1.jpg "Code Execution in V8")
+![Code Execution in V8](./assets/CodeExecution2.jpg "Code Execution in V8")
+
+### Event loop
+
+- Perfrom in cyclic manner
+
+  - Timer [setTimeOut, setInterval]
+  - Poll [I/O Callbacks like fs, crypto,http]
+  - Check [setImmediate]
+  - Close [socket.on("close")]
+
+- But before all the above phase `process.nextTick()` and `promise.callback()` run for each and every phase and both have highest priority
+- When nothing to perform in the Event Loop then it wait in the `Poll Phase` and then continue from the poll phase itself
+- One cycle of the event loop is called `Tick`
+  ![Event loop](./assets/EventLoop.jpg "Event loop")
+
+### Thread Pool
+
 ## Middleware is nothing but the initial checks before the actual execution of the function.
 
 ## app.use(express.json()) is use for getting body object whenever the post request is made.
