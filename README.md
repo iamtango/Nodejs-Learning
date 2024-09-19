@@ -252,3 +252,9 @@ appendFile("PATHNAME", "CONTENT TO WRITE");
 ```
 
 it doesn't overrides content with current content
+
+### Rename
+
+- You can rename the file using fs.rename method and to move the file you can also use the same method
+
+#### [For More](https://nodejs.org/docs/latest/api/fs.html)
