@@ -258,3 +258,15 @@ it doesn't overrides content with current content
 - You can rename the file using fs.rename method and to move the file you can also use the same method
 
 #### [For More](https://nodejs.org/docs/latest/api/fs.html)
+
+##### Octal No
+
+- It can be denoted by `o` e.g `0o12` or in previous version we can also represented by `012`
+
+##### Hexadecimal No
+
+- It can be denoted by `x` e.g `0x12`
+
+##### Binary No
+
+- It can be denoted by `b` e.g `0b12`
