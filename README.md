@@ -33,6 +33,9 @@ globalThis === global;
 ## Async task management by Libuv
 
 - Donot use the sync method it will going to block the Main thread instead use the async method thease task send to LIBUV
+- Timer queue uses min heap tree
+
+## Node js is asynchronous but the V8 engine is synchronous
 
 #### Code Execution in V8
 
@@ -68,6 +71,19 @@ globalThis === global;
   ![Event loop](./assets/EventLoop.jpg "Event loop")
 
 ### Thread Pool
+
+- By default there are 4 threads in the pool but user can able to change the size of the pool by using the variable `process.env.UV_THREADPOOL_SIZE`
+- Is Nodejs is single threaded or multithreaded ?
+  - It depends on the task user is doing. If the user is performing synchronous tasks then nodejs is single threaded and the task is asynchronous then nodejs is multithreaded
+- thread pool is created by using Libuv and it is used when `fs`, `dns.lookup`, `crypto.pbkdf2` or any kind of `user specified input` then it is using thread pool
+- `Thread per connection` is not an good idea (creatting a thread for each connection)
+
+#### `There are events occur in the kernel level which notify's to the libuv to perform the task, thats why it called event driven architecture`
+
+### Database
+
+- It is organized collections of the data
+  ![Database](./assets/RDBMS%20vs%20NoSQL.png "Database")
 
 ## Middleware is nothing but the initial checks before the actual execution of the function.
 
