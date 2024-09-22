@@ -83,7 +83,7 @@ globalThis === global;
 ### Database
 
 - It is organized collections of the data
-  ![Database](./assets/RDBMS%20vs%20NoSQL.png "Database")
+  ![MySQL vs NoSql](./assets/RDBMS%20vs%20NoSQL.png "MySQL vs NoSql")
 
 ## Middleware is nothing but the initial checks before the actual execution of the function.
 
