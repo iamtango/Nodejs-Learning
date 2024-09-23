@@ -286,3 +286,5 @@ it doesn't overrides content with current content
 ##### Binary No
 
 - It can be denoted by `b` e.g `0b12`
+
+##### If you wanted to debug the nodejs code into the browser use `--inspect-brk` flag to and then name of the file
