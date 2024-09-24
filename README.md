@@ -102,6 +102,37 @@ globalThis === global;
 - In nodejs Thread is swpan(start) by the `process` it it best to use thread instead of process it ti light weighted it take memory from the process and it is faster than running the `process`
 - we can create thread by using
 
+### If you are using express and create routes using app.use() then the scquence of the routes are matters like
+
+```js
+app.use("/", (req, res) => {
+  res.send("You are doing something which actually very great!");
+});
+
+app.use("/test", (req, res) => {
+  res.send("Your test");
+});
+```
+
+- Above code give me same `You are doing something which actually very great!` for every routes
+
+```js
+app.use("/test", (req, res) => {
+  res.send("Your test");
+});
+app.use("/", (req, res) => {
+  res.send("You are doing something which actually very great!");
+});
+```
+
+- but this code give me exact output as we expect
+
+### If you use the app.use()then it will match all the http methods
+
+#### we can use regular expressions as well while declaring the routes for example `?, +, *, ()` e.g : `/ab?c` --> `/abc & /ac` ; `/ab+c` --> `/abbbbbbbbbbbbbbc` any no of b ; `/ab*c` --> `/abWRITEANYTHINGc`;
+
+### -------------------------------------------------------
+
 ```javascript
 const { Worker } = require("worker_thread");
 new Worker("./worker.js");
