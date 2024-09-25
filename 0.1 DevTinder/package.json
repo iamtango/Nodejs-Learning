@@ -1,0 +1,19 @@
+{
+  "name": "0.0-devtinder",
+  "version": "1.0.0",
+  "description": "Tinder for Developers",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node --watch src/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Nodejs",
+    "javascript"
+  ],
+  "author": "Vedang",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.0"
+  }
+}

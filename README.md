@@ -93,10 +93,6 @@ globalThis === global;
 
 ---
 
-# CMD IMP Commands
-
-### `source` `ps1` `echo`
-
 ## Thread
 
 - In nodejs Thread is swpan(start) by the `process` it it best to use thread instead of process it ti light weighted it take memory from the process and it is faster than running the `process`
@@ -129,9 +125,41 @@ app.use("/", (req, res) => {
 
 ### If you use the app.use()then it will match all the http methods
 
+```js
+app.use(
+  "/",
+  (req, res, next) => {
+    // res.send("Main Dashboard");
+    next();
+  },
+  (req, res, next) => {
+    res.send("Main Dashboard");
+  }
+);
+```
+
 #### we can use regular expressions as well while declaring the routes for example `?, +, *, ()` e.g : `/ab?c` --> `/abc & /ac` ; `/ab+c` --> `/abbbbbbbbbbbbbbc` any no of b ; `/ab*c` --> `/abWRITEANYTHINGc`;
 
+### `Request  --> Middleware chains --> request handler`
+
+#### Handle the error gracefully by using
+
+```javascript
+// kind of wildcard match
+app.use("/",(err,req,res,next))=>{
+  if(err){
+    res.status(500).send("Something went wrong!!");
+  }
+}
+```
+
+below every routes
+
 ### -------------------------------------------------------
+
+# CMD IMP Commands
+
+### `source` `ps1` `echo`
 
 ```javascript
 const { Worker } = require("worker_thread");
