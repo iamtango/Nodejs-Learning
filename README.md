@@ -155,6 +155,10 @@ app.use("/",(err,req,res,next))=>{
 
 below every routes
 
+**When we pass anything in the body we cannot directly readt the data because it in json formate for that use `app.use(express.json())` above all request so that it can be use for all the request**
+
+### Any other data in the body which is apart from the `defined` model/ schema will not be added in your DB
+
 ### -------------------------------------------------------
 
 # CMD IMP Commands
