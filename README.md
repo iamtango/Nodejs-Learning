@@ -161,6 +161,12 @@ below every routes
 
 ### Any other data in the body which is apart from the `defined` model/ schema will not be added in your DB
 
+#### You can create hash using `bcrypt.hash(password, 10);` to compare if the password is matching or not use the `bcrypt.compare` function which return Boolean value and it return promises ` i.e bcrypt.compare(password, user.password);`
+
+#### To get the cookie use the package called `cookie-parser` , its like middleware which parses the cookies
+
+#### To create Token use `jsonwebtoken`. Tokenn can be created using `jwt.sign()` and `jwt.verify()` which verify the user is authentic or not
+
 ### -------------------------------------------------------
 
 # CMD IMP Commands
