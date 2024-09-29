@@ -167,6 +167,12 @@ below every routes
 
 #### To create Token use `jsonwebtoken`. Tokenn can be created using `jwt.sign()` and `jwt.verify()` which verify the user is authentic or not
 
+### In the `Schema Method` as we using `this` in the function donot use arrow function
+
+### Express Router
+
+- work exactly similar as app= express()
+
 ### -------------------------------------------------------
 
 # CMD IMP Commands
