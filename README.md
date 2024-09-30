@@ -173,6 +173,44 @@ below every routes
 
 - work exactly similar as app= express()
 
+## You can write OR condition as well in the mongo DB
+
+```js
+
+new Connection.findOne({
+  $or:[
+    { WRITE YOUR FIRST CONDITION}
+    { WRITE YOUR SECOND CONDITION}
+  ]
+})
+```
+
+- [$or query $and query in mongoose](https://www.mongodb.com/docs/manual/reference/operator/query-logical/)
+
+### Just like Schema validation, to add the middleware in the schema you can also use the `SCHEMA.pre` method
+
+### Node : whenerver you writing the schema method always use the normal functions avoid using arrow functions
+
+### Indexing is important concept which make the request faster as the DB collection grows
+
+- if you make the unique = true it will automatically create indexing in the DB or for manually you can use index = true
+
+**If you perform the operation on 2 or more than 2 fields then use the index compundingly**
+
+```js
+Connection.index({fromUserId: , toUserId:1}) // its in accending order to make it decending use -1 instead on 1
+```
+
+- [Read this arcticle about compond indexes](https://www.mongodb.com/docs/manual/core/indexes/index-types/index-compound/)
+
+### When you are refering the DB by making the connection using `ref: DBNAME` in the Schema then use the `.populate("BY_WHICH_FIELD",["WHATEVER_FIELDS_YOU_WANTED])`
+
+- [Read about ref and populate](https://mongoosejs.com/docs/populate.html)
+
+### If you had whole big object and wanted only specific fields then use the `.select("")` method
+
+### to implement the Pagination logic in using MongoDB it is much easier by using `.skip()` method and `.limit()` method
+
 ### -------------------------------------------------------
 
 # CMD IMP Commands
