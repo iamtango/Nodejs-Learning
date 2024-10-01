@@ -403,3 +403,7 @@ it doesn't overrides content with current content
 - It can be denoted by `b` e.g `0b12`
 
 ##### If you wanted to debug the nodejs code into the browser use `--inspect-brk` flag to and then name of the file
+
+**new ArrayBuffer(LENGTH)** it is use to create memory buffers
+
+- to chnage the vlaue of the buffer we need to use the `new DataView()` and store it in the variable there we have access to get and set the value into the buffer
