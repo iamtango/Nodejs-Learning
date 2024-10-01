@@ -11,7 +11,6 @@ profileRouter.get("/profile/view", userAuth, async (req, res) => {
     //   throw new Error("Invalid Token");
     // }
     // const { _id } = await jwt.verify(token, "DEV@Tinder$790");
-
     const user = req.user;
     // if (!user) {
     //   throw new Error("User does not exist");
