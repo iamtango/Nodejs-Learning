@@ -407,3 +407,5 @@ it doesn't overrides content with current content
 **new ArrayBuffer(LENGTH)** it is use to create memory buffers
 
 - to chnage the vlaue of the buffer we need to use the `new DataView()` and store it in the variable there we have access to get and set the value into the buffer
+
+- Typed Arrays is also used to store data in the ArrayBuffer
