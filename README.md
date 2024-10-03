@@ -409,3 +409,6 @@ it doesn't overrides content with current content
 - to chnage the vlaue of the buffer we need to use the `new DataView()` and store it in the variable there we have access to get and set the value into the buffer
 
 - Typed Arrays is also used to store data in the ArrayBuffer
+
+- In the nodejs we have UInt8Array to create buffer or use the imported Buffer from "buffer"
+- we can use buffers using 3 mehtods `Buffer.from()` `Buffer.alloc()` and `Buffer.allocUnsafe()`
