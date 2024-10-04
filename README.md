@@ -412,3 +412,4 @@ it doesn't overrides content with current content
 
 - In the nodejs we have UInt8Array to create buffer or use the imported Buffer from "buffer"
 - we can use buffers using 3 mehtods `Buffer.from()` `Buffer.alloc()` and `Buffer.allocUnsafe()`
+- `Buffer.allocUnsafe()` is much faster then `Buffer.alloc()`. function
