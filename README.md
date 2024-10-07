@@ -415,3 +415,14 @@ it doesn't overrides content with current content
 - `Buffer.allocUnsafe()` is much faster then `Buffer.alloc()`. function
 
 - Buffer Pool in Nodejs
+
+**When and Where Nodejs is Needed or can be Used**
+
+- Whenever ther is file operation and while fetching anything from the api Buffer is used
+
+### Limitatikons os using Bufers
+
+- High Memory consumption so to use buffer avaoid using big size data
+- Buffer use `ArrayBuffer` Behind the scene
+
+#### Base64 encoding is use to convert Binary data into string
