@@ -426,3 +426,17 @@ it doesn't overrides content with current content
 - Buffer use `ArrayBuffer` Behind the scene
 
 #### Base64 encoding is use to convert Binary data into string
+
+- btoa()
+
+```js
+await fs.readFile("FILE_NAME", "BASE64");
+```
+
+- atob()
+
+```js
+fs.writeFile("FILE_NAME", "BASE64");
+```
+
+- to send anything in the query params we use Base64Url encoding
