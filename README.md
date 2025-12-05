@@ -93,6 +93,99 @@ globalThis === global;
 
 ---
 
+## req.params
+
+```js
+app.use("/user/:userId", (req, res) => {
+  console.log("req====>", req.params);
+  res.send("This is known as res.params we can get by using req.params!");
+});
+```
+
+---
+
+## req.query
+
+```js
+app.use("/user?key1=value1&key2=value2", (req, res) => {
+  console.log("req====>", req.query); // {key1: value1,key2: value2}
+  res.send("This is known as res.query we can get by using req.query!");
+});
+```
+
+---
+
+## req.cookies
+
+- even the user use req.cookies it will still get undefined, to avoid this please use cookie parser and add it in the middleware
+
+```js
+const cookieParser = require("cookie-parser");
+app.use(cookieParser());
+
+app.use("/user", (req, res) => {
+  console.log("req====>", req.cookies);
+  res.send("This is cookie using req.cookies!");
+});
+```
+
+---
+
+## Route handlers or Middlewares
+
+- Route handlers are typically defined as a callback function (or an array of functions) passed as an argument to an Express routing method, such as app.get(), app.post(), app.put(), app.delete(), or app.use().
+
+```js
+app.use(
+  "/user?",
+  (req, res, next) => {
+    console.log("Route handlers! 1");
+    next();
+  },
+  (req, res) => {
+    console.log("Route handlers! 2");
+    res.send("Route handlers! 2");
+  }
+);
+```
+
+- (req, res)
+- (req, res, next)
+- (err, req, res, next)
+
+---
+
+## Handling errors in the code
+
+- Add below code snippets before listening on the port no. so that it will catch all the errors
+
+```js
+app.use("/", (err, req, res, next) => {
+  if (err) {
+    res.status(500).send("Something went wrong!!!");
+  }
+});
+```
+
+---
+
+---
+
+## Creating Express Router
+
+- we can create express router using `express.Router()` and then as we using app.use, app.get, app.post, etc. we similary use the same.
+
+```js
+const express = required("express");
+const authRouter = express.Router();
+
+authRouter.get();
+
+module.exports = authRouter;
+```
+
+---
+
 ## Thread
 
 - In nodejs Thread is swpan(start) by the `process` it it best to use thread instead of process it ti light weighted it take memory from the process and it is faster than running the `process`
@@ -210,6 +303,62 @@ Connection.index({fromUserId: , toUserId:1}) // its in accending order to make i
 ### If you had whole big object and wanted only specific fields then use the `.select("")` method
 
 ### to implement the Pagination logic in using MongoDB it is much easier by using `.skip()` method and `.limit()` method
+
+### -------------------------------------------------------
+
+# Deployment
+
+- Signup on AWS
+- Launch instance
+- chmod 400 <secret>.pem
+- ssh -i "devTinder-secret.pem" ubuntu@ec2-43-204-96-49.ap-south-1.compute.amazonaws.com
+- Install Node version 16.17.0
+- Git clone
+- Frontend
+  - npm install -> dependencies install
+  - npm run build
+  - sudo apt update
+  - sudo apt install nginx
+  - sudo systemctl start nginx
+  - sudo systemctl enable nginx
+  - Copy code from dist(build files) to /var/www/html/
+  - sudo scp -r dist/\* /var/www/html/
+  - Enable port :80 of your instance
+- Backend
+  - updated DB password
+  - allowed ec2 instance public IP on mongodb server
+  - npm intsall pm2 -g
+  - pm2 start npm --name "devTinder-backend" -- start
+  - pm2 logs
+  - pm2 list, pm2 flush <name> , pm2 stop <name>, pm2 delete <name>
+  - config nginx - /etc/nginx/sites-available/default
+  - restart nginx - sudo systemctl restart nginx
+  - Modify the BASEURL in frontend project to "/api"
+
+### -------------------------------------------------------
+
+# Ngxinx config:
+
+        Frontend = http://43.204.96.49/
+        Backend = http://43.204.96.49:7777/
+
+        Domain name = devtinder.com => 43.204.96.49
+
+        Frontend = devtinder.com
+        Backend = devtinder.com:7777 => devtinder.com/api
+
+        nginx config :
+
+        server_name 43.204.96.49;
+
+        location /api/ {
+            proxy_pass http://localhost:7777/;  # Pass the request to the Node.js app
+            proxy_http_version 1.1;
+            proxy_set_header Upgrade $http_upgrade;
+            proxy_set_header Connection 'upgrade';
+            proxy_set_header Host $host;
+            proxy_cache_bypass $http_upgrade;
+        }
 
 ### -------------------------------------------------------
 
